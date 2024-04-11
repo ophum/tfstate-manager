@@ -1,0 +1,11 @@
+services:
+  httpd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+    volumes:
+      - ./config.yaml:/etc/config.yaml
+      - ./cgi-bin/tfstate-manager:/usr/local/apache2/cgi-bin/tfstate-manager
+      - ./cgi-bin/tfstate-manager.cgi:/usr/local/apache2/cgi-bin/tfstate-manager.cgi

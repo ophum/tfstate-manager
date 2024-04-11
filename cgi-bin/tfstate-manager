@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export CONFIG_FILE="/etc/config.yaml"
+./tfstate-manager.cgi

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package api.state.v1;
+
+option go_package = "github.com/ophum/tfstate-manager/gen/api/state/v1;statev1";
+
+message State {
+  uint64 id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message ListRequest {}
+message ListResponse {
+  repeated State states = 1;
+}
+
+message CreateRequest {
+  string name = 1;
+  string description = 2;
+}
+message CreateResponse {
+  uint64 id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+service StateService {
+  rpc List(ListRequest) returns (ListResponse) {}
+  rpc Create(CreateRequest) returns (CreateResponse) {}
+}
